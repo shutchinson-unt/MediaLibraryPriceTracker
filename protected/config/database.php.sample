@@ -1,0 +1,10 @@
+<?php
+
+// This is the database connection configuration.
+return array(
+    'connectionString' => 'mysql:host=localhost;dbname=dev_pricetrack',
+    'emulatePrepare'   => true,
+    'username'         => 'dev_pricetrack',
+    'password'         => 'vewAfRa7',
+    'charset'          => 'utf8',
+);
