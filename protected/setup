@@ -1,0 +1,5 @@
+#!/bin/bash
+
+
+chmod -R 777 assets &>/dev/null
+chmod -R 777 protected/runtime &>/dev/null

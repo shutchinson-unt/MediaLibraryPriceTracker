@@ -40,7 +40,7 @@ return array(
 
         'urlManager'=>array(
             'urlFormat'=>'path',
-            'showScriptName'=>false,
+//            'showScriptName'=>false,                // must be commented to work on CSE machines
             'rules'=>array(
                 '<controller:\w+>/<id:\d+>'=>'<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
