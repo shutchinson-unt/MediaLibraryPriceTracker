@@ -19,11 +19,7 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'library_id'); ?>
-		<?php echo $form->textField($model,'library_id',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'library_id'); ?>
-	</div>
+	<?php echo $form->hiddenField($model,'library_id',array('size'=>10,'maxlength'=>10, 'value' => $model->library_id)); ?>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'name'); ?>

@@ -60,18 +60,24 @@ class MediaitemController extends Controller
      * Creates a new model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
-    public function actionCreate()
+    public function actionCreate($id)
     {
-        $model=new MediaItem;
+        $library = Library::model()->findByPk($id);
+
+        $model = new MediaItem;
+        $model->library_id = $library->id;
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
+
+        // var_dump($model->library_id);
+        // die;
 
         if(isset($_POST['MediaItem']))
         {
             $model->attributes=$_POST['MediaItem'];
             if($model->save())
-                $this->redirect(array('view','id'=>$model->id));
+                $this->redirect(array('/library/view/','id'=>$library->id));
         }
 
         $this->render('create',array(
