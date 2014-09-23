@@ -227,3 +227,58 @@ div.search-form
 {
 	background: #80CFFF;
 }
+
+
+
+
+
+/* Styling added for CSCE 4410 */
+.media-item-list {
+    /* background: #ffcc00; */
+    list-style: none;
+    padding: 0;
+}
+
+
+.media-item-list li {
+    /* backgorund: #ff00ff; */
+}
+
+.media-item-list .media-item-container {
+   display: inline-block;
+   /* background: #ffcc00; */
+   width: 100%;
+}
+
+.media-item-list a,
+.media-item-list a:link,
+.media-item-list a:active,
+.media-item-list a:visited {
+    float: left;
+    display: inline-block; 
+    height: 60px;
+    width: 76%;
+
+    background: #e0e0e0;
+    font: bold 18px/60px "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    color: #808080;
+    text-decoration: none;
+    margin: 0 0 10px;
+    padding: 0 0 0 2%;
+    border-bottom: 2px solid #d0d0d0;
+}
+
+.media-item-list .buy-price,
+.media-item-list .sell-price {
+    float: left;
+    background: #d0d0d0;
+    width: 10%;
+    height: 60px;
+    line-height: 60px;
+    font: bold 18px/60px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+    border-left: 2px solid #c0c0c0;
+    box-shadow: 1px 0 0 2px #ff00ff;
+    margin: 0;
+}

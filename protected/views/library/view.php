@@ -16,13 +16,21 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Library #<?php echo $model->id; ?></h1>
+<h1><?php echo $model->name; ?></h1>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'user_id',
-		'name',
-	),
-)); ?>
+<ul class="media-item-list">
+<?php foreach ($model->mediaItems as $mediaItem): ?>
+    <li>
+        <div class="media-item-container">
+            <a href="#"> <?php echo $mediaItem->name; ?></a>
+            <?php foreach ($mediaItem->prices as $price): ?>
+	        <?php if ($price->type === 'buy'): ?>
+	            <div class="buy-price">$<?php echo $price->value; ?></div>
+                <?php elseif ($price->type === 'sell'): ?>
+	            <div class="sell-price">$<?php echo $price->value; ?></div>
+		<?php endif; ?>
+	    <?php endforeach; ?>
+        </div>
+    </li>
+<?php endforeach; ?>
+</ul>
