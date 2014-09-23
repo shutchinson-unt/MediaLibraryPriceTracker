@@ -71,9 +71,9 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays the contact page
+     * Displays the support page
      */
-    public function actionContact()
+    public function actionSupport()
     {
         $model=new ContactForm;
         if(isset($_POST['ContactForm']))
@@ -93,7 +93,7 @@ class SiteController extends Controller
                 $this->refresh();
             }
         }
-        $this->render('contact',array('model'=>$model));
+        $this->render('support',array('model'=>$model));
     }
 
     /**
