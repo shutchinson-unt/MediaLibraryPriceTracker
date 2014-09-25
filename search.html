@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>eBay Search Results</title>
+<style type="text/css">body { font-family: arial,sans-serif;} </style>
+</head>
+<body>
+<h1>Media Library Price Tracker: eBay Search Results</h1>
+<p>What do you want to search for?</p>
+
+<input id="target" type="text">
+
+<button type="button" onclick="findIt()">Submit</button>
+
+
+
+
+<div id="results"></div>
+
+<script>
+function _cb_findItemsByKeywords(root)
+{
+  var items = root.findItemsByKeywordsResponse[0].searchResult[0].item || [];
+  var html = [];
+  html.push('<table width="100%" border="0" cellspacing="0" cellpadding="3"><tbody>');
+
+  for (var i = 0; i < items.length; ++i)  
+  {
+    var item     = items[i];
+    var title    = item.title;
+    var price     = item.sellingStatus[0].currentPrice[0].__value__;
+    var pic      = item.galleryURL;
+    var viewitem = item.viewItemURL;
+
+    if (null != title && null != viewitem)
+    {
+      html.push('<tr><td>' + '<img src="' + pic + '" border="0">' + '</td>' +
+        '<td><a href="' + viewitem + '" target="_blank">' + title + '</a></td>' + '<td>' + price + '</td></tr>');
+    }
+  }
+  html.push('</tbody></table>');
+  document.getElementById("results").innerHTML = html.join("");
+}
+</script>
+
+<!--
+Use the value of your appid for the appid parameter below.
+-->
+<script>
+function findIt(){
+   var x = document.getElementById("target").value;
+   var myUrl = "http://svcs.ebay.com/services/search/FindingService/v1?SECURITY-APPNAME=MediaLib-19b0-41cc-8880-24d9f96e0fab&OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&RESPONSE-DATA-FORMAT=JSON&callback=_cb_findItemsByKeywords&REST-PAYLOAD&keywords=";
+   myUrl += x;
+   myUrl += "&paginationInput.entriesPerPage=3";
+   // Submit the request
+   s=document.createElement('script'); // create script element
+   s.src= myUrl;
+   document.body.appendChild(s);
+}
+</script>
+</body>
+</html>
