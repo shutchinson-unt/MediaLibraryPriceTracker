@@ -76,8 +76,29 @@ class MediaitemController extends Controller
         if(isset($_POST['MediaItem']))
         {
             $model->attributes=$_POST['MediaItem'];
-            if($model->save())
+            if($model->save()) {
+                $buyPrice = new Price;
+                $sellPrice = new Price;
+
+                $priceUpper = mt_rand(10, 99);
+                $priceLower = mt_rand(10, 99);
+                $priceFinal = $priceUpper . '.' . $priceLower;
+                $buyPrice->type = 'buy';
+                $buyPrice->value = $priceFinal;
+                $buyPrice->media_item_id = $model->id;
+
+                $priceUpper = mt_rand(10, 99);
+                $priceLower = mt_rand(10, 99);
+                $priceFinal = $priceUpper . '.' . $priceLower;
+                $sellPrice->type = 'sell';
+                $sellPrice->value = $priceFinal;
+                $sellPrice->media_item_id = $model->id;
+
+                $buyPrice->save();
+                $sellPrice->save();
+
                 $this->redirect(array('/library/view/','id'=>$library->id));
+            }
         }
 
         $this->render('create',array(

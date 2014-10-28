@@ -63,6 +63,7 @@ class LibraryController extends Controller
     public function actionCreate()
     {
         $model=new Library;
+        $model->user_id = 1;        // hardcode user to default user (for demo only! Fix later)
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);

@@ -279,6 +279,6 @@ div.search-form
     font: bold 18px/60px "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-align: center;
     border-left: 2px solid #c0c0c0;
-    box-shadow: 1px 0 0 2px #ff00ff;
+    /*box-shadow: 1px 0 0 2px #ff00ff;*/
     margin: 0;
 }
