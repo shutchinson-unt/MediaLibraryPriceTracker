@@ -9,7 +9,7 @@
         <title><?php echo CHtml::encode(Yii::app()->name); ?></title>
 
         <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/style.css" type="text/css" media="screen, projection" />
-		
+
         <!-- <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/form.css" type="text/css" media="screen, projection" /> -->
         <!--[if IE 6]><link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/style.ie6.css" type="text/css" media="screen" /><![endif]-->
         <!--[if IE 7]><link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/style.ie7.css" type="text/css" media="screen" /><![endif]-->
@@ -19,11 +19,11 @@
     </head>
 	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"[]>
     <body>
-	
+
 		<div id="art-page-background-glare-wrapper">
 			<div id="art-page-background-glare"></div>
 		</div>
-		
+
         <div id="art-main">
                 <div class="cleared reset-box"></div>
 					<div class="art-bar art-nav">
@@ -36,11 +36,17 @@
 											'prelinklabel' => '<span class="l"></span><span class="r"></span><span class="t">',
 											'postlinklabel' => '</span>',
 											'items' => array(
-												array('label' => 'Home', 'url' => array('/site/index')),
-												array('label' => 'About', 'url' => array('/site/page', 'view' => 'about')),
-												array('label' => 'Contact', 'url' => array('/site/contact')),
-												array('label' => 'Login', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
-												array('label' => 'Logout (' . Yii::app()->user->name . ')', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest),
+                                                array('label'=>'Home', 'url'=>array('/site/index')),
+                                                array('label'=>'Libraries', 'url'=>array('/library/'), 'visible'=>!Yii::app()->user->isGuest),
+                                                array('label'=>'Support', 'url'=>array('/site/support')),
+                                                array('label'=>'Logout'/* . '('.Yii::app()->user->name.')'*/, 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+
+
+												// array('label' => 'Home', 'url' => array('/site/index')),
+												// array('label' => 'About', 'url' => array('/site/page', 'view' => 'about')),
+												// array('label' => 'Contact', 'url' => array('/site/contact')),
+												// array('label' => 'Login', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
+												// array('label' => 'Logout (' . Yii::app()->user->name . ')', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest),
 											),
 										));
 									?>
@@ -49,7 +55,7 @@
 						</div>
 					</div>
             <div class="cleared reset-box"></div>
-			
+
             <div class="art-header">
                 <div class="art-header-position">
                 <div class="art-header-wrapper">
@@ -65,7 +71,7 @@
 				</div>
 			</div>
             <div class="cleared reset-box"></div>
-			
+
 			<div class="art-box art-sheet">
 				<div class="art-box-body art-sheet-body">
 					<div class="art-layout-wrapper">
@@ -78,7 +84,7 @@
 							</div>
 							<div class="cleared"></div>
 						</div> <div class="cleared"></div>
-							
+
 						<div class="art-footer">
 							<div class="art-footer-body">
 								<div class="art-footer-text">
@@ -102,7 +108,7 @@
 												<li><a href="#">Contact Us</a></li>
 											</ul>
 										</li>
-											
+
 										<li style="float:left;margin-right:30px;width:200px;">
 											<p style="font: 18px 'Trebuchet MS'; color: #808080;">Company</p><br />
 											<ul>
@@ -111,19 +117,14 @@
 											</ul>
 										</li>
 									</ul>
-									<br />
-									
-									<p style="text-align: right;"><a href="#"><img width="32" height="32" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/css/images/rss_32-2.png" style="margin-right:10px;" /></a><a href="#"><img width="32" height="32" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/css/images/twitter_32-2.png" style="margin-right: 10px; cursor: text;" /></a><a href="#"><img width="32" height="32" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/css/images/facebook_32-2.png" /></a></p><br />
-									<br />
-									<p style="text-align: right;">Copyright © 2011 All Rights Reserved.</p>
-									<p style="text-align:right;">Icons by <a href="http://www.IconEden.com">IconEden</a></p>
+<!-- 									<p style="text-align: right;"><a href="#"><img width="32" height="32" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/css/images/rss_32-2.png" style="margin-right:10px;" /></a><a href="#"><img width="32" height="32" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/css/images/twitter_32-2.png" style="margin-right: 10px; cursor: text;" /></a><a href="#"><img width="32" height="32" alt="" src="<?php echo Yii::app()->theme->baseUrl; ?>/css/images/facebook_32-2.png" /></a></p><br /> -->
 								</div> <div class="cleared"></div>
 							</div>
 						</div> <div class="cleared"></div>
                     </div>
 				</div>
 			</div> <div class="cleared"></div>
-			<p class="art-page-footer"><a href="http://www.artisteer.com/?p=website_templates" target="_blank">Website Template</a> created with Artisteer.</p>
+			<p class="art-page-footer">Copyright &#169; <?php echo date('Y') . ' ' . Yii::app()->name; ?></p>
 			<div class="cleared"></div>
 		</div>
     </body>
