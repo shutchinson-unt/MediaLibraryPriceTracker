@@ -29,6 +29,9 @@
 					<div class="art-bar art-nav">
 						<div class="art-nav-outer">
 							<div class="art-nav-wrapper">
+                                <div class="home-logo-link">
+                                    <a href="<?php echo Yii::app()->createUrl('/site/index'); ?>"><?php echo Yii::app()->name; ?></a>
+                                </div>
 								<div class="art-nav-inner">
 									<?php
 										$this->widget('application.components.ArtMenu', array(
@@ -36,7 +39,7 @@
 											'prelinklabel' => '<span class="l"></span><span class="r"></span><span class="t">',
 											'postlinklabel' => '</span>',
 											'items' => array(
-                                                array('label'=>'Home', 'url'=>array('/site/index')),
+                                                // array('label'=>'Home', 'url'=>array('/site/index')),
                                                 array('label'=>'Libraries', 'url'=>array('/library/'), 'visible'=>!Yii::app()->user->isGuest),
                                                 array('label'=>'Support', 'url'=>array('/site/support')),
                                                 array('label'=>'Logout'/* . '('.Yii::app()->user->name.')'*/, 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)

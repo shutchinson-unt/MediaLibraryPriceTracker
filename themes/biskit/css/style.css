@@ -1657,6 +1657,27 @@ div.view
 
 
 /* Styling added for CSCE 4410 */
+.home-logo-link {
+  float: left;
+}
+
+.home-logo-link a,
+.home-logo-link a:link,
+.home-logo-link a:active,
+.home-logo-link a:visited {
+  float: left;
+  height: 65px;
+  font: bold 28px/65px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  color: #808080;
+  padding: 0 20px;
+}
+
+.home-logo-link a:hover {
+  background: #e0e0e0;
+  color: #606060;
+}
+
 .recent-media-items {
   display: inline-block;
   list-style: none;
