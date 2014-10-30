@@ -1657,6 +1657,39 @@ div.view
 
 
 /* Styling added for CSCE 4410 */
+.library-list {
+  /*background: #ffcc00;*/
+}
+
+.library-list li {
+  /*background: #00ff00;*/
+}
+
+.library-list a,
+.library-list a:link,
+.library-list a:active,
+.library-list a:visited {
+  display: block;
+  background: #e8e8e8;
+  height: 60px;
+  margin: 0 0 20px;
+  font: 18px/60px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  color: #606060;
+  padding: 0 0 0 15px;
+}
+
+.library-list .library-title {
+  float: left;
+  width: 92.5%;
+  font-weight: bold;
+}
+
+.library-list .library-item-count {
+  float: left;
+  font-size: 14px;
+}
+
 #media-item-form {
   display: block;
   text-align: center;

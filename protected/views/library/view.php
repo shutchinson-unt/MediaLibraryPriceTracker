@@ -21,23 +21,21 @@ $this->menu=array(
 <ul class="media-item-list">
     <li>
         <div class="media-item-container add-new">
-            <div class="form">
-                <?php
-                    $mediaItem = new MediaItem;
-                ?>
-                <?php $form=$this->beginWidget('CActiveForm', array(
-                    'id'=>'media-item-form',
-                    'enableAjaxValidation'=>false,
-                    'action' => Yii::app()->createUrl('mediaitem/create/' . $model->id),
-                )); ?>
+            <?php
+                $mediaItem = new MediaItem;
+            ?>
+            <?php $form=$this->beginWidget('CActiveForm', array(
+                'id'=>'media-item-form',
+                'enableAjaxValidation'=>false,
+                'action' => Yii::app()->createUrl('mediaitem/create/' . $model->id),
+            )); ?>
 
-                    <?php echo $form->hiddenField($mediaItem,'library_id',array('size'=>10,'maxlength'=>10, 'value' => $model->id)); ?>
+                <?php echo $form->hiddenField($mediaItem,'library_id',array('size'=>10,'maxlength'=>10, 'value' => $model->id)); ?>
 
-                    <?php echo $form->textField($mediaItem,'name',array('value' => '', 'placeholder' => 'Keyword', 'size'=>60,'maxlength'=>255, 'class' => 'media-item-name-field')); ?>
+                <?php echo $form->textField($mediaItem,'name',array('value' => '', 'placeholder' => 'Keyword', 'size'=>60,'maxlength'=>255, 'class' => 'media-item-name-field')); ?>
 
-                    <button type="submit" class="media-item-add-button">Add New Media</button>
-                <?php $this->endWidget(); ?>
-            </div>
+                <button type="submit" class="media-item-add-button">Add New Media</button>
+            <?php $this->endWidget(); ?>
         </div>
     </li>
 
