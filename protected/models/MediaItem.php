@@ -7,6 +7,7 @@
  * @property string $id
  * @property string $library_id
  * @property string $name
+ * @property string $image
  *
  * The followings are the available model relations:
  * @property Library $library
@@ -30,12 +31,12 @@ class MediaItem extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('library_id, name', 'required'),
+            array('library_id, name, image', 'required'),
             array('library_id', 'length', 'max'=>10),
-            array('name', 'length', 'max'=>255),
+            array('name, image', 'length', 'max'=>255),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, library_id, name', 'safe', 'on'=>'search'),
+            array('id, library_id, name, image', 'safe', 'on'=>'search'),
         );
     }
 
@@ -61,6 +62,7 @@ class MediaItem extends CActiveRecord
             'id' => 'ID',
             'library_id' => 'Library',
             'name' => 'Name',
+            'image' => 'Image',
         );
     }
 
@@ -85,6 +87,7 @@ class MediaItem extends CActiveRecord
         $criteria->compare('id',$this->id,true);
         $criteria->compare('library_id',$this->library_id,true);
         $criteria->compare('name',$this->name,true);
+        $criteria->compare('image',$this->image,true);
 
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,

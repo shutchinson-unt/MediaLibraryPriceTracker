@@ -538,6 +538,7 @@ ul.art-hmenu{
    margin-top: 0;
    margin-bottom: -2px;
    background: #fff;
+   box-shadow: 0 2px 1px 0 #c8c8c8;
 }
 
 /*.art-nav:before, .art-nav:after{
@@ -572,7 +573,7 @@ ul.art-hmenu>li>a
 {
    position: relative;
    display: block;
-   height: 65px;
+   height: 68px;
    cursor: pointer;
    text-decoration: none;
    color: #828282;
@@ -736,8 +737,9 @@ div.art-header
    width:100%;
    height: 360px;
    margin-top: 0;
-   margin-bottom: 0;
-   background: #e0e0e0;
+   margin-bottom: 20px;
+   background: #e0e0e0 url('images/books-web.jpg') no-repeat;
+   border-bottom: 10px solid #a0a0a0;
 }
 .art-header-position
 {
@@ -1655,6 +1657,33 @@ div.view
 
 
 /* Styling added for CSCE 4410 */
+#media-item-form {
+  display: block;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+#media-item-form .media-item-name-field {
+  width: 96%;
+  height: 40px;
+  font: 18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #fff;
+  border: 0;
+  padding: 0 1%;
+  margin: 0 0 10px;
+}
+
+#media-item-form .media-item-add-button {
+  width: 98%;
+  background: #f0674a;
+  font: bold 20px/60px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+  color: #a43d26;
+  border: 0;
+  border-bottom: 2px solid #d05135;
+}
+
 .media-item-name {
   font: bold 32px "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0 0 20px;
@@ -1680,7 +1709,9 @@ div.view
 }
 
 .media-item-container.add-new {
-  height: 80px;
+  height: 100%;
+  padding: 10px 0;
+  background: #d0d0d0;
 }
 
 .media-item-image-container {
@@ -1742,7 +1773,7 @@ div.view
     /*padding: 0 40px;*/
 
     /*padding: 0 0 0 2%;*/
-    border-bottom: 2px solid #D05135;
+    border-bottom: 2px solid #d05135;
 }
 
 .media-item-list .buy-price,

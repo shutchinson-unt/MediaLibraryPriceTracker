@@ -76,22 +76,37 @@ class MediaitemController extends Controller
         if(isset($_POST['MediaItem']))
         {
             $model->attributes=$_POST['MediaItem'];
+            echo '<pre>';
+
+            $ebay = new EbayVendor;
+
+            $searchResults = $ebay->getBasicEbayStuff($model->name);
+
+            $model->name = $searchResults['title'];
+            $model->image = $searchResults['image_url'];
+            // var_dump($searchResults);
+            // $searchResults = $ebay->getAllEbayStuff($model->name);
+            // var_dump($searchResults);
+            // die;
+
             if($model->save()) {
                 $buyPrice = new Price;
                 $sellPrice = new Price;
 
-                $priceUpper = mt_rand(10, 99);
-                $priceLower = mt_rand(10, 99);
-                $priceFinal = $priceUpper . '.' . $priceLower;
+                // $priceUpper = mt_rand(10, 99);
+                // $priceLower = mt_rand(10, 99);
+                // $priceFinal = $priceUpper . '.' . $priceLower;
                 $buyPrice->type = 'buy';
-                $buyPrice->value = $priceFinal;
+                // $buyPrice->value = $priceFinal;
+                $buyPrice->value = $searchResults['lowest_price'];
                 $buyPrice->media_item_id = $model->id;
 
-                $priceUpper = mt_rand(10, 99);
-                $priceLower = mt_rand(10, 99);
-                $priceFinal = $priceUpper . '.' . $priceLower;
+                // $priceUpper = mt_rand(10, 99);
+                // $priceLower = mt_rand(10, 99);
+                // $priceFinal = $priceUpper . '.' . $priceLower;
                 $sellPrice->type = 'sell';
-                $sellPrice->value = $priceFinal;
+                // $sellPrice->value = $priceFinal;
+                $sellPrice->value = $searchResults['lowest_price'];
                 $sellPrice->media_item_id = $model->id;
 
                 $buyPrice->save();
