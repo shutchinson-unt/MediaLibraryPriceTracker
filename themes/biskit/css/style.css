@@ -1657,6 +1657,72 @@ div.view
 
 
 /* Styling added for CSCE 4410 */
+.recent-media-items {
+  display: inline-block;
+  list-style: none;
+  background: #c0c0c0;
+  padding: 10px 4px;
+  margin: 0 0 60px;
+}
+
+.recent-media-items li {
+  float: left;
+  width: 19%;
+  margin: 0 0.5%;
+  background: #e0e0e0;
+  padding: 0 0 10px;
+
+}
+
+.recent-media-items .image-container {
+  width: 100%;
+  height: 240px;
+}
+
+.recent-media-item-name {
+  height: 40px;
+  padding: 10px 4%;
+  font: bold 12px/140% "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: left;
+}
+
+.recent-media-item-price {
+  float: left;
+  width: 42%;
+  height: 30px;
+  margin: 10px 0 0;
+  padding-left: 4%;
+  font: bold 18px/30px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.recent-media-items a,
+.recent-media-items a:link,
+.recent-media-items a:active,
+.recent-media-items a:visited {
+  float: left;
+  height: 30px;
+  width: 50%;
+  margin: 10px 4% 0 0;
+  background: #f0674a;
+  font: bold 14px/30px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  color: #a43d26;
+  border: 0;
+  border-bottom: 2px solid #d05135;
+}
+
+.recent-media-items img {
+  width: 100%;
+  height: 100%;
+}
+
+.about-us p {
+  width: 60%;
+  font: 16px/150%"Hoefler Text", Constantia, Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  margin: 0 0 20px;
+}
+
 .library-list {
   /*background: #ffcc00;*/
 }

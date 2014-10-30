@@ -45,14 +45,23 @@ class SiteController extends Controller
                 $this->redirect(Yii::app()->user->returnUrl);
         }
 
+        $recentItems = MediaItem::model()->findAll();
+        $recentItems = array_slice(array_reverse($recentItems), 0, 5, true);
+
         // if user is NOT logged in
         if (!Yii::app()->user->isGuest) {
             // display the login form
-            $this->render('index-user', array('model'=>$model));
+            $this->render('index-user', array(
+                'model'       => $model,
+                'recentItems' => $recentItems,
+            ));
         }
         else {
             // display the user's homepage content (e.g. some dashboard or something)
-            $this->render('index-guest', array('model'=>$model));
+            $this->render('index-guest', array(
+                'model'       => $model,
+                'recentItems' => $recentItems,
+            ));
         }
     }
 
