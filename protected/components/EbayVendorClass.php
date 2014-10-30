@@ -104,7 +104,7 @@ class EbayVendor{
 			$totPrice = $totPrice / $numItems;}
 		return array($imgUrl, $lowestPrice, $totPrice);
 	}
-}
+	
 	//Search ebay for the given keyword, return the results in an array
 	function getAllEbayStuff($targ){
 		$url = 'http://svcs.ebay.com/services/search/FindingService/v1?SECURITY-APPNAME=MediaLib-19b0-41cc-8880-24d9f96e0fab&OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords='. $targ . '&paginationInput.entriesPerPage=3';
@@ -115,10 +115,12 @@ class EbayVendor{
 
 		return $results;
 	}
+}
 
 
-$eb = new EbayVendor();
-echo join(',', $eb->getBasicEbayStuff('laptop'));
+
+//$eb = new EbayVendor();
+//echo join(',', $eb->getBasicEbayStuff('laptop'));
 
 
 ?>
