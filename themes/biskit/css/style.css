@@ -1655,6 +1655,11 @@ div.view
 
 
 /* Styling added for CSCE 4410 */
+.media-item-name {
+  font: bold 32px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0 0 20px;
+}
+
 .media-item-list {
     /* background: #ffcc00; */
     list-style: none;
@@ -1663,32 +1668,81 @@ div.view
 
 
 .media-item-list li {
-    /* backgorund: #ff00ff; */
+     /*background: #ff00ff;*/
 }
 
 .media-item-list .media-item-container {
    display: inline-block;
-   /* background: #ffcc00; */
+    background: #f8f8f8;
    width: 100%;
+   height: 240px;
+   margin-bottom: 20px;
+}
+
+.media-item-container.add-new {
+  height: 80px;
+}
+
+.media-item-image-container {
+  float: left;
+  width: 20%;
+  height: 240px;
+}
+
+.media-item-image {
+  background: #b0b0b0;
+  margin: 20px auto;
+  width: 80%;
+  height: 200px;
+}
+
+.media-item-info {
+  float: left;
+  margin: 20px 0 0 0;
+  height: 200px;
+  width: 60%
+}
+
+.media-item-info h2 {
+  font: bold 24px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0 0 10px;
+}
+
+.media-item-price-container {
+  float: left;
+  width: 20%;
+  height: 240px;
+}
+
+.media-item-price {
+  background: #e0e0e0;
+  margin: 20px auto 0;
+  width: 80%;
+  height: 120px;
+  font: bold 32px/120px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-align: center;
 }
 
 .media-item-list a,
 .media-item-list a:link,
 .media-item-list a:active,
 .media-item-list a:visited {
-    float: left;
-    display: inline-block;
+    display: block;
     height: 60px;
-    width: 76%;
+    width: 150px;
+    margin: 10px auto 0;
+    /*width: 76%;*/
 
-    background: #e0e0e0;
-    font: bold 18px/60px "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-    color: #808080;
+    background: #f0674a;
+    font: bold 20px/60px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+    color: #a43d26;
     text-decoration: none;
-    margin: 0 0 10px;
-    padding: 0 0 0 2%;
-    border-bottom: 2px solid #d0d0d0;
+    /*margin: 0 0 10px;*/
+    /*padding: 0 40px;*/
+
+    /*padding: 0 0 0 2%;*/
+    border-bottom: 2px solid #D05135;
 }
 
 .media-item-list .buy-price,

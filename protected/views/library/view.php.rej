@@ -1,0 +1,48 @@
+--- protected/views/library/view.php
++++ protected/views/library/view.php
+@@ -16,27 +16,32 @@
+ );
+ ?>
+ 
+-<h1><?php echo $model->name; ?></h1>
++<h1 class="media-item-name"><?php echo $model->name; ?></h1>
+ 
+ <ul class="media-item-list">
+     <li>
+-        <div class="media-item-container">
+-            <?php echo CHtml::link('Add New Media', array('mediaitem/create/' . $model->id), array('style' => 'background: #00e0f9')); ?>
++        <div class="media-item-container add-new">
++            <?php echo CHtml::link('Add New Media', array('mediaitem/create/' . $model->id), array('style' => 'width: 96%;')); ?>
+         </div>
+     </li>
+ <?php foreach ($model->mediaItems as $mediaItem): ?>
+     <li>
+         <div class="media-item-container">
+-            <a href="#"><?php echo $mediaItem->name; ?></a>
+-            <?php foreach ($mediaItem->prices as $price): ?>
+-                <?php if (isset($price->type)): ?>
+-                    <?php if ($price->type === 'buy'): ?>
+-                        <div class="buy-price">$<?php echo $price->value; ?></div>
+-                    <?php elseif ($price->type === 'sell'): ?>
+-                        <div class="sell-price">$<?php echo $price->value; ?></div>
+-                    <?php endif; ?>
+-                <?php endif; ?>
+-            <?php endforeach; ?>
++            <div class="media-item-image-container">
++                <div class="media-item-image"></div>
++            </div>
++
++            <div class="media-item-info">
++                <h2><?php echo $mediaItem->name; ?></h2>
++                <p><strong>Author:</strong> J.K. Rowling</p>
++                <p><strong>ISBN:</strong> 1442219440</p>
++                <p><strong>Description:</strong> Volutpat volutpat nostra torquent vehicula inceptos fermentum</p>
++            </div>
++
++            <div class="media-item-price-container">
++                <div class="media-item-price">$1234</div>
++                <a href="<?php echo Yii::app()->createUrl('/mediaitem/view/' . $mediaItem->id); ?>">View Prices</a>
++            </div>
+         </div>
+     </li>
+ <?php endforeach; ?>
