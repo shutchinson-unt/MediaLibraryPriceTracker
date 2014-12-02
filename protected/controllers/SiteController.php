@@ -65,6 +65,52 @@ class SiteController extends Controller
         }
     }
 
+    public function actionRegister()
+    {
+        $requestMethod = Yii::app()->getRequest()->getRequestType();
+
+        if ($requestMethod === 'GET') {
+            $this->render('register');
+            return;
+        }
+
+        if (!isset($_POST['username'])
+            || !isset($_POST['password'])
+            || !isset($_POST['repeat_password'])
+        ) {
+            $this->redirect(Yii::app()->createUrl('/site/register'));
+            return;
+        }
+
+        $users = User::model()->findAll();
+        foreach ($users as $user) {
+            if ($user->username === $_POST['username']) {
+                $this->redirect(Yii::app()->createUrl('/site/register'));
+                return;
+            }
+        }
+
+        if ($_POST['password'] !== $_POST['repeat_password']) {
+            $this->redirect(Yii::app()->createUrl('/site/register'));
+            return;
+        }
+
+        $hash = Password::hash($_POST['password'], 12);
+
+        $user = new User;
+        $user->username = $_POST['username'];
+        $user->password = $hash;
+
+        if ($user->save()) {
+            $duration = 3600*24*30; // 30 days
+            Yii::app()->user->login(new UserIdentity($user->username, $user->password), $duration);
+            $this->redirect(Yii::app()->createUrl('/site/index'));
+            return;
+        }
+
+        $this->redirect(Yii::app()->createUrl('/site/register'));
+    }
+
     /**
      * This is the action to handle external exceptions.
      */

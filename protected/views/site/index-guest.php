@@ -9,52 +9,71 @@ $this->pageTitle=Yii::app()->name . ' - Login';
 // );
 ?>
 
-<h1 class="media-item-name">Login</h1>
+<div class="home-form-container">
+    <div class="form login-form-container">
+        <h1 class="media-item-name">Sign In</h1>
+        <?php $form=$this->beginWidget('CActiveForm', array(
+            'id'=>'login-form',
+            'enableClientValidation'=>true,
+            'clientOptions'=>array(
+                'validateOnSubmit'=>true,
+            ),
+        )); ?>
 
-<!-- <p>Please fill out the following form with your login credentials:</p> -->
+            <!-- <p class="note">Fields with <span class="required">*</span> are required.</p> -->
 
-<div class="form">
-<?php $form=$this->beginWidget('CActiveForm', array(
-    'id'=>'login-form',
-    'enableClientValidation'=>true,
-    'clientOptions'=>array(
-        'validateOnSubmit'=>true,
-    ),
-)); ?>
+            <div class="row">
+                <?php echo $form->labelEx($model,'username'); ?>
+                <?php echo $form->textField($model,'username'); ?>
+                <?php echo $form->error($model,'username'); ?>
+            </div>
 
-    <!-- <p class="note">Fields with <span class="required">*</span> are required.</p> -->
+            <div class="row">
+                <?php echo $form->labelEx($model,'password'); ?>
+                <?php echo $form->passwordField($model,'password'); ?>
+                <?php echo $form->error($model,'password'); ?>
+        <!--         <p class="hint">
+                    Hint: You may login with <kbd>demo</kbd>/<kbd>demo</kbd> or <kbd>admin</kbd>/<kbd>admin</kbd>.
+                </p> -->
+            </div>
 
-    <div class="row">
-        <?php echo $form->labelEx($model,'username'); ?>
-        <?php echo $form->textField($model,'username'); ?>
-        <?php echo $form->error($model,'username'); ?>
+            <div class="row rememberMe">
+                <?php echo $form->checkBox($model,'rememberMe'); ?>
+                <?php echo $form->label($model,'rememberMe'); ?>
+                <?php echo $form->error($model,'rememberMe'); ?>
+            </div>
+
+            <div class="row buttons">
+                <?php echo CHtml::submitButton('Sign In'); ?>
+            </div>
+
+        <?php $this->endWidget(); ?>
     </div>
 
-    <div class="row">
-        <?php echo $form->labelEx($model,'password'); ?>
-        <?php echo $form->passwordField($model,'password'); ?>
-        <?php echo $form->error($model,'password'); ?>
-<!--         <p class="hint">
-            Hint: You may login with <kbd>demo</kbd>/<kbd>demo</kbd> or <kbd>admin</kbd>/<kbd>admin</kbd>.
-        </p> -->
+    <div class="register-form-container">
+        <h1 class="media-item-name">Sign Up</h1>
+        <form class="register-form" method="post" action="<?php echo Yii::app()->createUrl('site/register'); ?>">
+            <div class="row">
+                <label>Username<br />
+                    <input type="text" name="username" maxlength="255">
+                </label><br />
+            </div>
+            <div class="row">
+                <label>Password<br />
+                    <input type="password" name="password" maxlength="255">
+                </label><br />
+            </div>
+            <div class="row">
+                <label>Repeat Password<br />
+                    <input type="password" name="repeat_password" maxlength="255">
+                </label><br />
+            </div>
+            <button type="submit">Create</button>
+        </form>
     </div>
 
-    <div class="row rememberMe">
-        <?php echo $form->checkBox($model,'rememberMe'); ?>
-        <?php echo $form->label($model,'rememberMe'); ?>
-        <?php echo $form->error($model,'rememberMe'); ?>
-    </div>
-
-    <div class="row buttons">
-        <?php echo CHtml::submitButton('Login'); ?>
-    </div>
-
-<?php $this->endWidget(); ?>
-</div><!-- form -->
-
-
-<br />
-<br />
+    <div style="clear: left;"></div>
+</div>
 
 <h1 class="media-item-name">Recent Offers</h1>
 <ul class="recent-media-items">

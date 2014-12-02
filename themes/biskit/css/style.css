@@ -1914,3 +1914,36 @@ div.view
     /*box-shadow: 1px 0 0 2px #ff00ff;*/
     margin: 0;
 }
+
+.home-form-container {
+  padding: 0 0 40px;
+}
+
+.login-form-container {
+  float: left;
+  display: inline-block;
+  width: 45%;
+  margin-right: 10%;
+  box-shadow: -2px 0 0 0 #e0e0e0 inset;
+}
+
+.register-form-container {
+  float: left;
+  display: inline-block;
+  width: 45%;
+}
+
+.register-form {
+  width: 100%;
+}
+
+.register-form label {
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.register-form-input {
+  display: inline-block;
+}
