@@ -124,6 +124,13 @@ class LibraryController extends Controller
     public function actionIndex()
     {
         $dataProvider=new CActiveDataProvider('Library');
+
+        $currentUserId = Yii::app()->session['user_id'];
+        $criteria = new CDbCriteria();
+        $criteria->condition = "user_id = '$currentUserId'";
+
+        $dataProvider->criteria = $criteria;
+
         $this->render('index',array(
             'dataProvider'=>$dataProvider,
         ));

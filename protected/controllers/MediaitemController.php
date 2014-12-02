@@ -76,18 +76,12 @@ class MediaitemController extends Controller
         if(isset($_POST['MediaItem']))
         {
             $model->attributes=$_POST['MediaItem'];
-            echo '<pre>';
 
             $ebay = new EbayVendor;
-
             $searchResults = $ebay->getBasicEbayStuff($model->name);
 
             $model->name = $searchResults['title'];
             $model->image = $searchResults['image_url'];
-            // var_dump($searchResults);
-            // $searchResults = $ebay->getAllEbayStuff($model->name);
-            // var_dump($searchResults);
-            // die;
 
             if($model->save()) {
                 $buyPrice = new Price;

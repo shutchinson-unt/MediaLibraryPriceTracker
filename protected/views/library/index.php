@@ -26,7 +26,7 @@ $this->menu=array(
                 'action' => Yii::app()->createUrl('library/create/'),
             )); ?>
 
-                <?php echo $form->hiddenField($library,'user_id',array('size'=>10,'maxlength'=>10, 'value' => 1)); ?>
+                <?php echo $form->hiddenField($library,'user_id',array('size'=>10,'maxlength'=>10, 'value' => Yii::app()->session['user_id'])); ?>
 
                 <?php echo $form->textField($library,'name',array('value' => '', 'placeholder' => 'Name', 'size'=>60,'maxlength'=>255, 'class' => 'media-item-name-field')); ?>
 
@@ -35,7 +35,8 @@ $this->menu=array(
         </div>
     </li>
     <br />
-<?php $this->widget('zii.widgets.CListView', array(
+<?php
+$this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
     'enablePagination' => false,

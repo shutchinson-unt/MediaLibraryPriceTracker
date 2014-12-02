@@ -40,9 +40,21 @@ class SiteController extends Controller
         if(isset($_POST['LoginForm']))
         {
             $model->attributes=$_POST['LoginForm'];
+
+
+            $userId = -1;
+            $users = User::model()->findAll();
+            foreach ($users as $user) {
+                if ($user->username === $model->username) {
+                    $userId = $user->id;
+                }
+            }
+
             // validate user input and redirect to the previous page if valid
-            if($model->validate() && $model->login())
-                $this->redirect(Yii::app()->user->returnUrl);
+            if($model->validate() && $model->login()) {
+                Yii::app()->session['user_id'] = $userId;
+                $this->redirect(Yii::app()->createUrl('/library'));
+            }
         }
 
         $recentItems = MediaItem::model()->findAll();
@@ -104,6 +116,7 @@ class SiteController extends Controller
         if ($user->save()) {
             $duration = 3600*24*30; // 30 days
             Yii::app()->user->login(new UserIdentity($user->username, $user->password), $duration);
+            Yii::app()->session['user_id'] = $user->id;
             $this->redirect(Yii::app()->createUrl('/site/index'));
             return;
         }
