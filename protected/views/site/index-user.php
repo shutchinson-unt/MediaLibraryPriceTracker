@@ -33,7 +33,6 @@ You're logged in as <strong><?php echo Yii::app()->user->name; ?></strong>
 
 <div class="about-us">
     <h1 class="media-item-name">What is ePrice?</h1>
-    <p>Rhoncus aenean. <em>Conubia</em> mus suscipit in molestie sed vivamus fermentum. Sem quis <em>donec</em> sociis, sagittis. Massa. Ante Auctor integer. Dui luctus. Non urna. Dictum arcu metus ultrices integer ultrices placerat. Iaculis rutrum luctus praesent nonummy et fermentum penatibus. Porttitor ad.</p>
-    <p>Mus ligula ultrices iaculis quam sodales urna <em>lacus</em> egestas metus sed sapien tempus lobortis conubia torquent aliquet. Aenean. Morbi eros purus, ullamcorper <em>nunc</em> sociis duis. Massa commodo sollicitudin, ipsum, rhoncus enim, <strong>habitant</strong> elementum venenatis diam scelerisque duis et sociis lectus aliquam cum <em>fermentum</em> venenatis senectus.</p>
-    <p>Erat aptent curae;, nibh porta praesent et adipiscing adipiscing dolor sagittis quisque primis. Suscipit Lacus.</p>
+<p>There are many sites that buy used textbooks. They all may offer the same book but then prices will most likely differ. So, it is best to look around for the best price to make sure you getting the best deals when buying your books.</p>
+<p>ePrice makes this proess of locating and buying a book easy by quickly searching all of those sites for you. Our sites technology submits the ISBN to each of the sites, just like you would. It then displays the prices from all of those sites so you can see the range of offers and decide who you want to buy from or sell it to.</p>
 </div>
