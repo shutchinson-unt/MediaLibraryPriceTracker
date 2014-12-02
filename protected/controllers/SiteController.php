@@ -90,20 +90,20 @@ class SiteController extends Controller
             || !isset($_POST['password'])
             || !isset($_POST['repeat_password'])
         ) {
-            $this->redirect(Yii::app()->createUrl('/site/register'));
+            $this->redirect(Yii::app()->createUrl('/site/index'));
             return;
         }
 
         $users = User::model()->findAll();
         foreach ($users as $user) {
             if ($user->username === $_POST['username']) {
-                $this->redirect(Yii::app()->createUrl('/site/register'));
+                $this->redirect(Yii::app()->createUrl('/site/index'));
                 return;
             }
         }
 
         if ($_POST['password'] !== $_POST['repeat_password']) {
-            $this->redirect(Yii::app()->createUrl('/site/register'));
+            $this->redirect(Yii::app()->createUrl('/site/index'));
             return;
         }
 
@@ -121,7 +121,7 @@ class SiteController extends Controller
             return;
         }
 
-        $this->redirect(Yii::app()->createUrl('/site/register'));
+        $this->redirect(Yii::app()->createUrl('/site/index'));
     }
 
     /**
